@@ -4,8 +4,6 @@ import BN from "bn.js";
 import { WizData } from "../WizData";
 import bcrypt from "bcrypt";
 import { publicKeyTweakCheckWithPrefix } from "./taproot";
-import { TxData } from "./model";
-import { segwitSerialization, taprootSerialization } from "./serialization";
 
 // TO DO @afarukcali review
 
@@ -29,6 +27,11 @@ export const hash160 = (wizData: WizData): CryptoJS.lib.WordArray => {
 
 export const sha256v2 = (wizData: WizData): string => {
     return CryptoJS.SHA256(CryptoJS.enc.Hex.parse(wizData.hex)).toString();
+};
+
+export const sha256d = (wizData: WizData): string => {
+    const round = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(wizData.hex)).toString();
+    return CryptoJS.SHA256(CryptoJS.enc.Hex.parse(round)).toString();
 };
 
 export const hash160v2 = (wizData: WizData): string => {

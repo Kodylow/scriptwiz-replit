@@ -4,7 +4,7 @@ import './App.scss'
 import { CONVERT_TYPE, HELPER_ERROR_MESSAGE } from './wizdata/constants';
 import { convertBase64, reverseHex, validBin, validBytes, validHex, validNumber } from './utils';
 import { WizData } from './WizData';
-import { sha256v2, hash160v2 } from './wizdata/crypto';
+import { sha256v2, hash160v2, sha256d } from './wizdata/crypto';
 import CopyIcon from './Svg/Icons/Copy';
 import CloseIcon from './Svg/Icons/Close';
 
@@ -20,6 +20,7 @@ type Result = {
     numberResult?: string;
     base64Result: string;
     sha256Result: string;
+    sha256dResult: string;
     hash160Result: string;
     textResult: string;
 };
@@ -34,6 +35,7 @@ const initialState = {
     numberResult: '',
     base64Result: '',
     sha256Result: '',
+    sha256dResult: '',
     hash160Result: '',
     textResult: '',
 };
@@ -57,6 +59,7 @@ export const DataTools = () => {
             let numberResult = '';
             let base64Result = '';
             let sha256Result = '';
+            let sha256dResult = '';
             let hash160Result = '';
 
             const reverseHexValue = reverseHex(wizdataInput.hex);
@@ -74,6 +77,7 @@ export const DataTools = () => {
                 numberResult = wizdataReverse.number?.toString() || '';
                 base64Result = convertBase64(wizdata.hex);
                 sha256Result = sha256v2(wizdata);
+                sha256dResult = sha256d(wizdata);
                 hash160Result = hash160v2(wizdata);
             }
 
@@ -87,6 +91,7 @@ export const DataTools = () => {
                 numberResult = wizdata.number?.toString() || '';
                 base64Result = convertBase64(wizdataReverse.hex);
                 sha256Result = sha256v2(wizdataReverse);
+                sha256dResult = sha256d(wizdata);
                 hash160Result = hash160v2(wizdataReverse);
             }
 
@@ -100,6 +105,7 @@ export const DataTools = () => {
                 numberResult = wizdata.number?.toString() || '';
                 base64Result = convertBase64(wizdata.hex);
                 sha256Result = sha256v2(wizdata);
+                sha256dResult = sha256d(wizdata);
                 hash160Result = hash160v2(wizdata);
             }
 
@@ -113,6 +119,7 @@ export const DataTools = () => {
                 numberResult = wizdata.number?.toString() || '';
                 base64Result = convertBase64(wizdataReverse.hex);
                 sha256Result = sha256v2(wizdataReverse);
+                sha256dResult = sha256d(wizdata);
                 hash160Result = hash160v2(wizdataReverse);
             }
 
@@ -126,6 +133,7 @@ export const DataTools = () => {
                 numberResult = wizdataReverse.number?.toString() || '';
                 base64Result = convertBase64(wizdata.hex);
                 sha256Result = sha256v2(wizdata);
+                sha256dResult = sha256d(wizdata);
             }
 
             const textResult = wizdata.text || '';
@@ -140,6 +148,7 @@ export const DataTools = () => {
                 numberResult,
                 base64Result,
                 sha256Result,
+                sha256dResult,
                 hash160Result,
                 textResult,
             });
@@ -395,7 +404,7 @@ export const DataTools = () => {
                         </div>
 
                         <div className="helper-result-item">
-                            <h6 className="helper-tab-header">SHA256</h6>
+                            <h6 className="helper-tab-header">SHA256d</h6>
                             <InputGroup className="compile-modal-input-group">
                                 <Input value={convertedWizData.sha256dResult} disabled />
                                 <Whisper placement="top" trigger="click" speaker={<Tooltip>SHA256d has been copied to clipboard!</Tooltip>}>
