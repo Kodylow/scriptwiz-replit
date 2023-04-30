@@ -1,0 +1,42 @@
+{
+  "name": "react-typescript",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "React TypeScript on Replit, using Vite bundler",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@replit/extensions": "^1.0.0",
+    "@replit/extensions-react": "^1.0.0",
+    "@script-wiz/lib-core": "^0.0.62",
+    "@script-wiz/wiz-data": "^1.0.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^2.0.0",
+    "bcrypt": "^5.1.0",
+    "bcrypto": "^5.4.0",
+    "bn.js": "^5.2.1",
+    "buffer": "^6.0.3",
+    "crypto-js": "^4.1.1",
+    "elliptic": "^6.5.4",
+    "install": "^0.13.0",
+    "node-pre-gyp": "^0.17.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rsuite": "^5.33.0",
+    "sass": "^1.62.1",
+    "vite": "^3.0.4"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^18.16.3"
+  }
+}
